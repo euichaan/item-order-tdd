@@ -3,6 +3,9 @@ package com.example.productorderservice.product;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
+@Component
 class ProductRepository {
 	private Long sequence = 0L;
 	private Map<Long, Product> persistence = new HashMap<>();
