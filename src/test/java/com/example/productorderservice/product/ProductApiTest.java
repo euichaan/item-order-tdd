@@ -7,10 +7,6 @@ import org.springframework.http.HttpStatus;
 
 import com.example.productorderservice.ApiTest;
 
-import io.restassured.RestAssured;
-import io.restassured.response.ExtractableResponse;
-import io.restassured.response.Response;
-
 class ProductApiTest extends ApiTest {
 
 	private final ProductSteps productSteps = new ProductSteps();
@@ -30,16 +26,12 @@ class ProductApiTest extends ApiTest {
 		productSteps.상품등록요청(productSteps.상품등록요청_생성());
 		Long productId = 1L;
 		// when
-		ExtractableResponse<Response> response = RestAssured.given().log().all()
-			.when()
-			.get("/products/{productId}", productId)
-			.then()
-			.log().all()
-			.extract();
+		final var response = productSteps.상품조회요청(productId);
 
 		// then
 		assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
 		assertThat(response.jsonPath().getString("name")).isEqualTo("상품명");
 		assertThat(response.jsonPath().getLong("id")).isEqualTo(1);
 	}
+
 }
