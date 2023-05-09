@@ -3,7 +3,6 @@ package com.example.productorderservice.product;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
@@ -13,10 +12,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 
-public class ProductApiTest extends ApiTest {
-
-	@Autowired
-	private ProductService productService;
+class ProductApiTest extends ApiTest {
 
 	@Test
 	void 상품등록() {
