@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 
 import com.example.productorderservice.ApiTest;
 
+import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 
@@ -24,11 +25,20 @@ class ProductApiTest extends ApiTest {
 		assertThat(response.statusCode()).isEqualTo(HttpStatus.CREATED.value());
 	}
 
-	public ExtractableResponse<Response> 상품등록요청(final AddProductRequest request) {
-		return productSteps.상품등록요청(request);
-	}
+	@Test
+	void 상품조회() {
+		productSteps.상품등록요청(productSteps.상품등록요청_생성());
+		Long productId = 1L;
+		// when
+		ExtractableResponse<Response> response = RestAssured.given().log().all()
+			.when()
+			.get("/products/{productId}", productId)
+			.then()
+			.log().all()
+			.extract();
 
-	public AddProductRequest 상품등록요청_생성() {
-		return productSteps.상품등록요청_생성();
+		// then
+		assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
+		assertThat(response.jsonPath().getString("name")).isEqualTo("상품명");
 	}
 }
