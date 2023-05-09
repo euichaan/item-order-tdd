@@ -7,6 +7,8 @@ record GetProductResponse(
 	String name,
 	int price,
 	DiscountPolicy discountPolicy
+
+
 ) {
 	GetProductResponse {
 		Assert.notNull(id, "상품 ID는 필수입니다.");
