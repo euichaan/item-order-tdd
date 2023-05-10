@@ -1,10 +1,9 @@
-package com.example.productorderservice.order;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.example.productorderservice.order.adapter;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.example.productorderservice.order.domain.Order;
 
 @Repository
 public

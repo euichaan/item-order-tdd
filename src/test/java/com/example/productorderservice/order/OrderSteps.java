@@ -2,7 +2,7 @@ package com.example.productorderservice.order;
 
 import org.springframework.http.MediaType;
 
-import com.example.productorderservice.order.CreateOrderRequest;
+import com.example.productorderservice.order.application.service.CreateOrderRequest;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;

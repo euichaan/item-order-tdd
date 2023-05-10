@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import com.example.productorderservice.ApiTest;
+import com.example.productorderservice.product.adapter.ProductRepository;
+import com.example.productorderservice.product.application.service.AddProductRequest;
 
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
